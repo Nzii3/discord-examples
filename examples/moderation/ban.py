@@ -29,6 +29,7 @@ class Ban(commands.Cog):
       await member.ban(reason=reason)
     except discord.Forbidden: # if you're using discord.py, use 'discord.errors.Forbidden' instead of 'discord.Forbiddn'; means the bot can't ban the user
       return await ctx.reply(f"Could not ban {member}; please make sure I have `Ban Members` permissions.")
+    await ctx.reply(f"🔨 Banned `{member}`\n**Reason:** {reason}") # you can pass in 'mention_author=False' if you don't want the bot to ping the author when replying. By default it pings.
      
 def setup(bot: commands.Bot):
   bot.add_cog(Ban(bot))
