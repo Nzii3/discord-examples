@@ -30,3 +30,5 @@ class Ban(commands.Cog):
     except discord.Forbidden: # if you're using discord.py, use 'discord.errors.Forbidden' instead of 'discord.Forbiddn'; means the bot can't ban the user
       return await ctx.reply(f"Could not ban {member}; please make sure I have `Ban Members` permissions.")
      
+def setup(bot: commands.Bot):
+  bot.add_cog(Ban(bot))
