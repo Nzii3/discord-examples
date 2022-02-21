@@ -10,6 +10,9 @@ client = commands.Bot(command_prefix=PREFIX, intents=discord.Intents.all())
 # discord.Client > only events (@client.event, @commands.Cog.listener)
 # commands.Bot > everything that a bot can have (everything mentioned above)
 
+### NOTE: IF YOU ARE USING 'commands.Bot' WITH A VERIFIED BOT, AT THE START OF APRIL:
+### YOU WILL NEED TO APPLY FOR THE 'message content intent' TO BE ABLE TO USE NORMAL PREFIX COMMANDS
+
 @client.event
 async def on_ready():
   # if you decide to do persistent views, do 'client.add_view(MyClass())' before printing ready
