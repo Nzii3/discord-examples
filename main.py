@@ -1,5 +1,4 @@
 # MAIN BOT FILE
-
 import discord
 from discord.ext import commands
 
