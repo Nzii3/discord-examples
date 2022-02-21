@@ -12,6 +12,8 @@ client = commands.Bot(command_prefix=PREFIX, intents=discord.Intents.all())
 
 @client.event
 async def on_ready():
+  # if you decide to do persistent views, do 'client.add_view(MyClass())' before printing ready
+  # do this so you don't accidently try to run commands while it's adding views
   print(f'{client.user} is ready!')
 
 
