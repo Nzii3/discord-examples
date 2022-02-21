@@ -2,7 +2,7 @@
 import discord
 from discord.ext import commands
 
-PREFIX = "!" # you can change this to what you want (e.g. '>'; '-'; '?')
+PREFIX = "!" # you can change this to what you want (e.g. '>'; '-'; '?'; '$')
 
 client = commands.Bot(command_prefix=PREFIX, intents=discord.Intents.all())
 # Now, there are 3 things you can do to make your bot:
