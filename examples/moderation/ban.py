@@ -11,8 +11,10 @@ class Ban(commands.Cog):
 ### PREFIX COMMAND (commands.Bot needed when defining client var) ###
   @commands.command()
   @commands.has_permissions(ban_members=True)
-  async def ban(self, ctx, member: discord.Member, *, reason: str = "No reason provided."): # If a reason is a NoneType (none), it defaults to 'No reason provided.'
+  async def ban(self, ctx, member: discord.Member, *, reason: str = "No reason provided.", delete_message_days: int=None): # 'delete_message_days' is when Discord automatically deletes messages sent by the banned user in the server
     await ctx.trigger_typing()
+    if delete_message_days <= 7:
+      delete_message_days = 7 # Discord doesn't allow messages older than 7 days to be deleted in this method, so we change it to 7 and move on 
     if member == ctx.author:
       return await ctx.reply("You can't ban yourself.") #self explanatory 
     if member.top_role >= ctx.author.top_role: # checks to see if the user is trying to ban a user higher than them (e.g. Staff member trying to ban Management member)
@@ -26,7 +28,7 @@ class Ban(commands.Cog):
     except discord.Forbidden:
       pass # ignoring that the member couldn't be messaged
     try:
-      await member.ban(reason=reason)
+      await member.ban(reason=reason, delete_message_days=delete_message_days)
     except discord.Forbidden: # if you're using discord.py, use 'discord.errors.Forbidden' instead of 'discord.Forbiddn'; means the bot can't ban the user
       return await ctx.reply(f"Could not ban {member}; please make sure I have `Ban Members` permissions.")
     await ctx.reply(f"🔨 Banned `{member}`\n**Reason:** {reason}") # you can pass in 'mention_author=False' if you don't want the bot to ping the author when replying. By default it pings.
@@ -35,8 +37,10 @@ class Ban(commands.Cog):
 
   @slash_command(guild_ids=[123456789]) # Replace '123...' with the ID you want your bot to add the slash command to
   @permissions.has_permissions(ban_members=True)
-  async def ban(self, ctx, member: Option(discord.Member, "Member to ban", required=True), reason: Option(str, "Reason", default="No reason provided.")): # If a reason is a NoneType (none), it defaults to 'No reason provided.'
+  async def ban(self, ctx, member: Option(discord.Member, "Member to ban", required=True), reason: Option(str, "Reason", default="No reason provided."), delete_message_days: Option(int, required=False)): # If a reason is a NoneType (none), it defaults to 'No reason provided.'
     await ctx.defer()
+    if delete_message_days <= 7:
+      delete_message_days = 7 # Discord doesn't allow messages older than 7 days to be deleted in this method, so we change it to 7 and move on
     if member == ctx.author:
       return await ctx.interaction.followup.send("You can't ban yourself.") #self explanatory 
     if member.top_role >= ctx.author.top_role: # checks to see if the user is trying to ban a user higher than them (e.g. Staff member trying to ban Management member)
@@ -50,7 +54,7 @@ class Ban(commands.Cog):
     except discord.Forbidden:
       pass # ignoring that the member couldn't be messaged
     try:
-      await member.ban(reason=reason)
+      await member.ban(reason=reason, delete_message_days=delete_message_days)
     except discord.Forbidden: # if you're using discord.py, use 'discord.errors.Forbidden' instead of 'discord.Forbiddn'; means the bot can't ban the user
       return await ctx.interaction.followup.send(f"Could not ban {member}; please make sure I have `Ban Members` permissions.")
     await ctx.interaction.followup.send(f"🔨 Banned `{member}`\n**Reason:** {reason}")
