@@ -1,5 +1,4 @@
 # REQUIRED IMPORTS
-from email.policy import default
 import discord
 from discord.ext import commands
 import re
