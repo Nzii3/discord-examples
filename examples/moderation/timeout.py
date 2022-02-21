@@ -48,7 +48,7 @@ class Timeout(commands.Cog):
 
 ### SLASH COMMAND ###
 
-  @slash_command()
+  @slash_command(guild_ids=[123456789]) # replace '123...' with your guild ID
   @permissions.has_permissions(moderate_members=True)
   async def timeout(self, ctx, member: Option(discord.Member, "Member to timeout", required=True), time: TimeConverter, reason: Option(str, "Reason", required=False, default="No reason provided.")):
     await ctx.defer()
