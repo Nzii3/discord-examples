@@ -15,7 +15,7 @@ class RoleInfo(commands.Cog):
   async def roleinfo(self, ctx, role: discord.Role): # 'discord.Role' can take in a role's name, ID, or mention
     await ctx.trigger_typing()
     info = discord.Embed(color=role.color, description=role.mention)
-    info.add_field(name=role.name, icon_url=ctx.guild.icon if ctx.guild.icon else "https://media.pocketgamer.biz/2021/5/110514/discord-new-logo-2021-r225x.jpg")
+    info.set_author(name=role.name, icon_url=ctx.guild.icon if ctx.guild.icon else "https://media.pocketgamer.biz/2021/5/110514/discord-new-logo-2021-r225x.jpg")
     info.add_field(name="Name", value=role.name, inline=True)
     info.add_field(name="Created", value=f"{discord.utils.format_dt(role.created_at, style='F')} ({discord.utils.format_dt(role.created_at, style='R')})", inline=True) # 'inline' makes the fields in line in the embed, by default it's False
     info.add_field(name="Members", value=len(role.members), inline=True)
@@ -31,7 +31,7 @@ class RoleInfo(commands.Cog):
   async def roleinfo(self, ctx, role: Option(discord.Role, required=True)):
     await ctx.defer()
     info = discord.Embed(color=role.color, description=role.mention)
-    info.add_field(name=role.name, icon_url=ctx.guild.icon if ctx.guild.icon else "https://media.pocketgamer.biz/2021/5/110514/discord-new-logo-2021-r225x.jpg")
+    info.set_author(name=role.name, icon_url=ctx.guild.icon if ctx.guild.icon else "https://media.pocketgamer.biz/2021/5/110514/discord-new-logo-2021-r225x.jpg")
     info.add_field(name="Name", value=role.name, inline=True)
     info.add_field(name="Created", value=f"{discord.utils.format_dt(role.created_at, style='F')} ({discord.utils.format_dt(role.created_at, style='R')})", inline=True) # 'inline' makes the fields in line in the embed, by default it's False
     info.add_field(name="Members", value=len(role.members), inline=True)
