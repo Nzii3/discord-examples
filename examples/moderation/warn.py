@@ -38,9 +38,9 @@ class Warn(commands.Cog):
   async def warn(self, ctx, member: Option(discord.Member, "The member to warn", required=True), reason: Option(str, "Reason", required=True)): # reason is now a required argument\
     await ctx.defer() # if you do want to make this an ephemeral (hidden) defer, pass in: 'ephemeral=True' then to followups, pass the same thing in
     if ctx.author == member:
-      return await ctx.interaction.followup.send("You can't warn yourself.")
+      return await ctx.respond("You can't warn yourself.")
     if member.top_role >= ctx.author.top_role: # checks to see if the user is trying to warn a user higher than them (e.g. Staff member trying to ban Management member)
-      return await ctx.interaction.followup.send("You can't mute a user that's higher than you.")
+      return await ctx.respond("You can't mute a user that's higher than you.")
     warning_embed = discord.Embed(color=discord.Colour.red(), description=f"You've been warned in {ctx.guild.name}!")
     warning_embed.add_field(name="Moderator", value=f"{ctx.author} (ID: {ctx.author.id})") # Shows the moderator to the warned user, optional
     warning_embed.add_field(name="Reason", value=reason, inline=True)
@@ -49,7 +49,7 @@ class Warn(commands.Cog):
       await member.send(embed=warning_embed)
     except discord.Forbidden:
       return await ctx.interaction.followup.send("Could not message that member about their warning.")
-    await ctx.interaction.followup.send(f"⚠  Successfully warned **{member}**!")
+    await ctx.respond(f"⚠  Successfully warned **{member}**!")
 
 def setup(bot: commands.Bot):
   bot.add_cog(Warn(bot))

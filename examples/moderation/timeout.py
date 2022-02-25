@@ -53,17 +53,17 @@ class Timeout(commands.Cog):
   async def timeout(self, ctx, member: Option(discord.Member, "Member to timeout", required=True), time: TimeConverter, reason: Option(str, "Reason", required=False, default="No reason provided.")):
     await ctx.defer()
     if time > 604800:
-      return await ctx.interaction.followup.send(f"You cannot time someone out for longer than a week; Discord limitations :(")
+      return await ctx.respond(f"You cannot time someone out for longer than a week; Discord limitations :(")
     if member == ctx.author:
-      return await ctx.interaction.followup.send("You can't mute yourself.") #self explanatory 
+      return await ctx.respond("You can't mute yourself.") #self explanatory 
     if member.top_role >= ctx.author.top_role: # checks to see if the user is trying to ban a user higher than them (e.g. Staff member trying to ban Management member)
-      return await ctx.interaction.followup.send("You can't mute a user that's higher than you.")
+      return await ctx.respond("You can't mute a user that's higher than you.")
     try:
       await member.timeout_for(duration=timedelta(seconds=time), reason=reason)
     except discord.Forbidden:
-      return await ctx.interaction.followup.send("It seems like I can't timeout that member.")
+      return await ctx.respond("It seems like I can't timeout that member.")
     timeout_till = f"<t:{int(member.communication_disabled_until.timestamp())}>"
-    await ctx.interaction.followup.send(f"Muted `{member}` until {timeout_till}.")
+    await ctx.respond(f"Muted `{member}` until {timeout_till}.")
 
 def setup(bot: commands.Bot):
   bot.add_cog(Timeout(bot))

@@ -39,7 +39,7 @@ class RoleInfo(commands.Cog):
     info.add_field(name="Mentionable", value=str(role.mentionable), inline=True)
     info.add_field(name="Hoisted", value=str(role.hoist), inline=True)
     info.add_field(name="Managed", value=str(role.managed), inline=True)
-    return await ctx.interaction.followup.send(embed=info)
+    return await ctx.respond(embed=info)
 
 def setup(bot: commands.Bot):
   bot.add_cog(RoleInfo(bot))

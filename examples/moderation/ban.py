@@ -42,9 +42,9 @@ class Ban(commands.Cog):
     if delete_message_days <= 7:
       delete_message_days = 7 # Discord doesn't allow messages older than 7 days to be deleted in this method, so we change it to 7 and move on
     if member == ctx.author:
-      return await ctx.interaction.followup.send("You can't ban yourself.") #self explanatory 
+      return await ctx.respond("You can't ban yourself.") #self explanatory 
     if member.top_role >= ctx.author.top_role: # checks to see if the user is trying to ban a user higher than them (e.g. Staff member trying to ban Management member)
-      return await ctx.interaction.followup.send("You can't ban a user that's higher than you.")
+      return await ctx.respond("You can't ban a user that's higher than you.")
     # creating an embed to send to the member
     embed = discord.Embed(color=discord.Colour.red(), description=f"You've been banned in {ctx.guild.name}!")
     embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon if ctx.guild.icon else "https://media.pocketgamer.biz/2021/5/110514/discord-new-logo-2021-r225x.jpg") # Now, this is a big thing: pycord changed the way the 'OBJECT.icon/avatar_url' works. it might throw an error if 'ctx.guild' doesn't have an icon; I recommend leaving it how it is if you're using pycord, if you're using discord.py, change '.icon' > '.icon_url'
@@ -56,8 +56,8 @@ class Ban(commands.Cog):
     try:
       await member.ban(reason=reason, delete_message_days=delete_message_days)
     except discord.Forbidden: # if you're using discord.py, use 'discord.errors.Forbidden' instead of 'discord.Forbiddn'; means the bot can't ban the user
-      return await ctx.interaction.followup.send(f"Could not ban {member}; please make sure I have `Ban Members` permissions.")
-    await ctx.interaction.followup.send(f"🔨 Banned `{member}`\n**Reason:** {reason}")
+      return await ctx.respond(f"Could not ban {member}; please make sure I have `Ban Members` permissions.")
+    await ctx.respond(f"🔨 Banned `{member}`\n**Reason:** {reason}")
 
 def setup(bot: commands.Bot):
   bot.add_cog(Ban(bot))
