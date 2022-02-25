@@ -34,7 +34,7 @@ class Timeout(commands.Cog):
   async def timeout(self, ctx, member: discord.Member, time: TimeConverter, *, reason="No reason provided"):
     await ctx.trigger_typing()
     if time > 604800:
-      return await ctx.reply(f"You cannot time someone out for longer than a week; Discord limitations :(")
+      return await ctx.reply(f"You cannot time someone out for longer than a week; Discord limitations :(.")
     if member == ctx.author:
       return await ctx.reply("You can't mute yourself.") #self explanatory 
     if member.top_role >= ctx.author.top_role: # checks to see if the user is trying to ban a user higher than them (e.g. Staff member trying to ban Management member)
