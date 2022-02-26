@@ -3,6 +3,9 @@ from discord.ext import commands
 
 ### PLEASE READ 'discord-examples/examples/views/README.md' before continuing
 
+### NOTE: CODE CREDIT: https://github.com/Pycord-Development/pycord/blob/master/examples/views/dropdown.py
+### CODE EDITED TO BE SIMPLIFIED AND SHORT
+
 class MySelectView(discord.ui.View):
   def __init__(self):
     super().__init__(timeout=30.0)
