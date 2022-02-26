@@ -5,7 +5,7 @@ There is something called the `message component family`. This family consists o
 ## Subclassing views
 
 To easily subclass a view, follow this format and change the stuff that you need:
-  - **This is mainly covered in `[discord-examples/examples/views/buttons.py]`(https://github.com/Nziie3/discord-examples/blob/main/examples/views/buttons.py)**
+  - **This is mainly covered in [`discord-examples/examples/views/buttons.py`](https://github.com/Nziie3/discord-examples/blob/main/examples/views/buttons.py)**
 ```py
 class MyView(discord.ui.View):
   def __init__(self):
