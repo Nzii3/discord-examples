@@ -41,15 +41,9 @@ body:
       label: Py-cord Version
       description: >
         Run `python -m discord -v` and paste this information below.
+        You can also print out `discord.__version__` to get the version itself then paste it here
     validations:
       required: true
-:
-        - label: I have searched the open issues for duplicates.
-          required: true
-        - label: I have shown the entire traceback, if possible.
-          required: true
-        - label: I have removed my token from display, if visible.
-          required: true
   - type: textarea
     attributes:
       label: Additional Context

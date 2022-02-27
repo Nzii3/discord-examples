@@ -2,6 +2,12 @@ name: Feature Request
 description: Suggest a feature for this py-cord examples repo.
 labels: feature request
 body:
+  - type: markdown
+    attributes:
+      value: >
+        Please note that this is only a bug report form for **this repo only**.
+        Bug reports for internal library errors must be reported to https://github.com/Pycord-Development/pycord
+        `ALL UNNECESSARY BUG REPORTS WILL BE DELETED`
   - type: input
     attributes:
       label: Summary
@@ -43,4 +49,4 @@ body:
   - type: textarea
     attributes:
       label: Additional Context
-      description: If there is anything else to say, please do so here.
+      description: Want to add anything else? Do it here
