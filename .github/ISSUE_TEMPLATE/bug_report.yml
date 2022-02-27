@@ -1,6 +1,7 @@
 name: Bug Report
 description: Report broken or incorrect behaviour
 labels: unconfirmed bug
+assignees: Nziie3
 body:
   - type: markdown
     attributes:

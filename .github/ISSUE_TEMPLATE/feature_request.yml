@@ -1,6 +1,7 @@
 name: Feature Request
 description: Suggest a feature for this py-cord examples repo.
 labels: feature request
+assignees: Nziie3
 body:
   - type: input
     attributes:
