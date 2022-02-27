@@ -19,6 +19,12 @@ async def on_ready():
   # do this so you don't accidently try to run commands while it's adding views
   print(f'{client.user} is ready!')
 
+# Lets add a ping command, you can use this to see if your bot actually works
+
+@client.command()
+async def ping(ctx):
+  await ctx.send(f"Ping! - {round(client.latency*1000)}ms")
+
 
 TOKEN = "put your token here" # put your bot's token in the string, you can get your bot's token from the Developer Portal
 client.run(TOKEN)
