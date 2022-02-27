@@ -2,13 +2,6 @@ name: Bug Report
 description: Report broken or incorrect behaviour
 labels: unconfirmed bug
 body:
-  - type: markdown
-    attributes:
-      value: >
-        Thanks for taking the time to fill out a bug.
-        If you want real-time support, consider joining our Discord at https://pycord.dev/discord instead.
-
-        Please note that this form is for bugs only!
   - type: input
     attributes:
       label: Summary
@@ -17,9 +10,10 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: Reproduction Steps
+      label: Code
       description: >
-         What you did to make it happen.
+         What code did you use to cause this error?
+      render: python
     validations:
       required: true
   - type: textarea
@@ -42,30 +36,14 @@ body:
         What actually happened?
     validations:
       required: true
-  - type: input
-    attributes:
-      label: Intents
-      description: >
-        What intents are you using for your bot?
-        This is the `discord.Intents` class you pass to the client.
-    validations:
-      required: true
   - type: textarea
     attributes:
-      label: System Information
+      label: Py-cord Version
       description: >
         Run `python -m discord -v` and paste this information below.
-
-        This command required v1.1.0 or higher of the library. If this errors out then show some basic
-        information involving your system such as operating system and Python version.
     validations:
       required: true
-  - type: checkboxes
-    attributes:
-      label: Checklist
-      description: >
-        Let's make sure you've properly done due dilligence when reporting this issue!
-      options:
+:
         - label: I have searched the open issues for duplicates.
           required: true
         - label: I have shown the entire traceback, if possible.
