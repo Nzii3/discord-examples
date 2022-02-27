@@ -7,6 +7,7 @@ body:
       value: >
         Please note that this is only a bug report form for **this repo only**.
         Bug reports for internal library errors must be reported to https://github.com/Pycord-Development/pycord
+        
         `ALL UNNECESSARY BUG REPORTS WILL BE DELETED`
   - type: input
     attributes:
