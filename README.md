@@ -12,4 +12,8 @@ I (`vNziie--#7777`) plan to create at least 1 new file a week containing an exam
 
 # Running your bot
 
-Once you've made your main.py file, inserted your `TOKEN` in your main.py file, 
+Once you've made your main.py file, inserted your `TOKEN` in your main.py file - and you're using Visual Studio Code - press <kbd>CTRL + C<kbd>
+
+If this doesn't work, try running: `python3 main.py`.
+
+**If none of these work, try going to the [Pycord Support server](https://discord.gg/pycord).**
