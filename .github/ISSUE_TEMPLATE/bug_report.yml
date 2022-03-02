@@ -28,7 +28,7 @@ body:
     attributes:
       label: Minimal Reproducible Code
       description: >
-        A short snippet of code that showcases the bug.
+        A short snippet of code that shows the bug.
       render: python
   - type: textarea
     attributes:
