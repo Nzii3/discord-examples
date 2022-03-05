@@ -69,6 +69,8 @@ class Timeout(commands.Cog):
     timeout_till = f"<t:{int(member.communication_disabled_until.timestamp())}>"
     await ctx.respond(f"Muted `{member}` until {timeout_till}.")
 
+### NOTE: Basically, to un-timeout a member, use 
+
 def setup(bot: commands.Bot):
   bot.add_cog(Timeout(bot))
-    
+
