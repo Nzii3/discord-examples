@@ -39,6 +39,8 @@ class Timeout(commands.Cog):
       return await ctx.reply("You can't mute yourself.") #self explanatory 
     if member.top_role >= ctx.author.top_role: # checks to see if the user is trying to ban a user higher than them (e.g. Staff member trying to ban Management member)
       return await ctx.reply("You can't mute a user that's higher than you.")
+    if member.timed_out is True:
+      await ctx.reply(f"That member is already timed out.")
     try:
       await member.timeout_for(duration=timedelta(seconds=time), reason=reason)
     except discord.Forbidden:
@@ -58,6 +60,8 @@ class Timeout(commands.Cog):
       return await ctx.respond("You can't mute yourself.") #self explanatory 
     if member.top_role >= ctx.author.top_role: # checks to see if the user is trying to ban a user higher than them (e.g. Staff member trying to ban Management member)
       return await ctx.respond("You can't mute a user that's higher than you.")
+    if member.timed_out is True:
+      await ctx.respond(f"That member is already timed out.")
     try:
       await member.timeout_for(duration=timedelta(seconds=time), reason=reason)
     except discord.Forbidden:
