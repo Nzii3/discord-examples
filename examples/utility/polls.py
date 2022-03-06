@@ -25,7 +25,7 @@ class Polls(commands.Cog):
 
 ### SLASH COMMAND
   @slash_command(name="poll")
-  @permissions.has_guild_permissions(manage_guild=True)
+  @permissions.has_guild_permissions(manage_messages=True)
   async def _poll(self, ctx, poll: Option(str, required=True), *, channel: Option(discord.TextChannel, require=False)):
     await ctx.defer(ephemeral=True)
     if channel is None:
