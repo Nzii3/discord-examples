@@ -41,5 +41,5 @@ class RoleInfo(commands.Cog):
     info.add_field(name="Managed", value=str(role.managed), inline=True)
     return await ctx.respond(embed=info)
 
-def setup(bot: commands.Bot):
+def setup(bot):
   bot.add_cog(RoleInfo(bot))

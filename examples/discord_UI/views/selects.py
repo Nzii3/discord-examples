@@ -20,7 +20,7 @@ class MySelectView(discord.ui.View):
 # somewhere else
 
 class MyCog(commands.Cog):
-  def __init__(self, bot: commands.Bot):
+  def __init__(self, bot):
     self.bot = bot
 
   @commands.command()
@@ -28,5 +28,5 @@ class MyCog(commands.Cog):
     view = MySelectView()
     await ctx.send(content="Select your favorite color!", view=view)
 
-def setup(bot: commands.Bot):
+def setup(bot):
   bot.add_cog(MyCog(bot))

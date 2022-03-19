@@ -25,7 +25,7 @@ class TimeConverter(commands.Converter): # this is a time converter, it will bas
     return time
 
 class Timeout(commands.Cog):
-  def __init__(self, bot: commands.Bot):
+  def __init__(self, bot):
     self.bot = bot
 
 ### PREFIX COMMAND ###
@@ -71,5 +71,5 @@ class Timeout(commands.Cog):
 
 ### NOTE: Basically, to un-timeout a member, use 'member.remove_timeout()'
 
-def setup(bot: commands.Bot):
+def setup(bot):
   bot.add_cog(Timeout(bot))

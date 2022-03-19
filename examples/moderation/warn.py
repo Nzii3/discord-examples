@@ -6,7 +6,7 @@ from discord.ext import commands
 from discord.commands import slash_command, Option, permissions
 
 class Warn(commands.Cog):
-  def __init__(self, bot: commands.Bot):
+  def __init__(self, bot):
     self.bot = bot
 
   
@@ -51,5 +51,5 @@ class Warn(commands.Cog):
       return await ctx.interaction.followup.send("Could not message that member about their warning.")
     await ctx.respond(f"⚠  Successfully warned **{member}**!")
 
-def setup(bot: commands.Bot):
+def setup(bot):
   bot.add_cog(Warn(bot))

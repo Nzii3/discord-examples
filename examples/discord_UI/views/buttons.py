@@ -54,7 +54,7 @@ class Confirm(discord.ui.View): # CREDIT (VERY USEFUL): https://github.com/Pycor
 # somewhere else
 
 class MyCog(commands.Cog):
-  def __init__(self, bot: commands.Bot):
+  def __init__(self, bot):
     self.bot = bot
   
   @commands.command()
@@ -68,7 +68,7 @@ class MyCog(commands.Cog):
     if view.value == "No":
       await view.message.edit(content=f"You canceled with {view.value}!", view=view)
 
-def setup(bot: commands.Bot):
+def setup(bot):
   bot.add_cog(MyCog(bot))
 
 

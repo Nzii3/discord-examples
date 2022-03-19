@@ -4,7 +4,7 @@ from datetime import datetime
 from discord.commands import slash_command, Option, permissions
 
 class Polls(commands.Cog):
-  def __init__(self, bot: commands.Bot):
+  def __init__(self, bot):
     self.bot = bot
 
 ### PREFIX COMMAND
@@ -39,5 +39,5 @@ class Polls(commands.Cog):
     for r in reactions:
       await message.add_reaction(r)
 
-def setup(bot: commands.Bot):
+def setup(bot):
   bot.add_cog(Polls(bot))

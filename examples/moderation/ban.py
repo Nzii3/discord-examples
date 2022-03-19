@@ -6,7 +6,7 @@ from discord.ext import commands
 from discord.commands import slash_command, permissions, Option # for ban slash command
 
 class Ban(commands.Cog):
-  def __init__(self, bot: commands.Bot):
+  def __init__(self, bot):
     self.bot = bot
 ### PREFIX COMMAND (commands.Bot needed when defining client var) ###
   @commands.command()
@@ -59,5 +59,5 @@ class Ban(commands.Cog):
       return await ctx.respond(f"Could not ban {member}; please make sure I have `Ban Members` permissions.")
     await ctx.respond(f"🔨 Banned `{member}`\n**Reason:** {reason}")
 
-def setup(bot: commands.Bot):
+def setup(bot):
   bot.add_cog(Ban(bot))

@@ -4,7 +4,7 @@ from discord.ext import commands
 from discord.commands import slash_command, permissions, Option
 
 class SlashCommandCog(commands.Cog):
-  def __init__(self, bot: commands.Bot):
+  def __init__(self, bot):
     self.bot = bot
 
   @slash_command(name="slash_command_normal", description="This is my normal slash command", guild_ids=[123456789])
@@ -35,5 +35,5 @@ class SlashCommandCog(commands.Cog):
     await ctx.defer()
     await ctx.respond(f"Your option that you selected is {choice}!")
 
-def setup(bot: commands.Bot):
+def setup(bot):
   bot.add_cog(SlashCommandCog(bot))

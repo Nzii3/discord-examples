@@ -6,7 +6,7 @@ from discord.ext import commands
 from discord.commands import slash_command, permissions, Option
 
 class Kick(commands.Cog):
-  def __init__(self, bot: commands.Bot):
+  def __init__(self, bot):
     self.bot = bot
 ### PREFIX COMMAND ###
   @commands.command()
@@ -55,5 +55,5 @@ class Kick(commands.Cog):
       return await ctx.respond(f"Could not kick {member}; please make sure I have `Kick Members` permissions.")
     await ctx.respond(f"🔨 Kicked `{member}`\n**Reason:** {reason}")
 
-def setup(bot: commands.Bot):
+def setup(bot):
   bot.add_cog(Kick(bot))

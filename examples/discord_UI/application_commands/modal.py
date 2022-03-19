@@ -38,7 +38,7 @@ class MyModalButton(discord.ui.View):
 
 # somewhere else
 class MyModalCommand(commands.Cog):
-  def __init__(self, bot: commands.Bot):
+  def __init__(self, bot):
     self.bot = bot
   
   @commands.command()
@@ -49,5 +49,5 @@ class MyModalCommand(commands.Cog):
   async def send_modal_slash(self, ctx):
     await ctx.interaction.response.send_modal(MyModal())
   
-def setup(bot: commands.Bot):
+def setup(bot):
   bot.add_cog(MyModalCommand(bot))
