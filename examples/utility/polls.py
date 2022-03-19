@@ -11,8 +11,8 @@ class Polls(commands.Cog):
   @commands.command()
   @commands.has_guild_permissions(manage_guild=True)
   async def poll(self, ctx, poll: str, *, channel: discord.TextChannel=None):
-    await ctx.trigger_typing()
     await ctx.message.delete()
+    await ctx.trigger_typing()
     if channel is None:
       channel = ctx.channel
     embed = discord.Embed(title=poll, color=discord.Colour.blurple(), timestamp=datetime.utcnow())
