@@ -1,3 +1,6 @@
+
+### NOTE: This is a warning command without a database, you can use MongoDB (what I use) or Sqlite to store your warning data
+
 # REQUIRED IMPORTS
 import discord
 from discord.ext import commands
