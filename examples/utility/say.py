@@ -30,4 +30,4 @@ class Say(commands.Cog):
     await ctx.respond("Sent message!", ephemeral=True)
 
 def setup(bot):
-  bot.load_extension(Say(bot))
+  bot.add_cog(Say(bot))
