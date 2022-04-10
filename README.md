@@ -12,7 +12,7 @@ I (`vNziie--#7777`) plan to create at least 1 new file a week containing an exam
 
 # Running your bot
 
-Once you've made your main.py file, inserted your `TOKEN` in your main.py file - and you're using Visual Studio Code - press <kbd>CTRL+C<kbd>
+Once you've made your main.py file, inserted your `TOKEN` in your main.py file - and you're using Visual Studio Code - press the green arrow button on the top right of your VSC.
 
 If this doesn't work, try running: `python3 main.py`.
 
