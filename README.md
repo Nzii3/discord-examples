@@ -16,4 +16,4 @@ Once you've made your main.py file, inserted your `TOKEN` in your main.py file -
 
 If this doesn't work, try running: `python3 main.py`.
 
-**If none of these work, try going to the [Pycord Support server](https://discord.gg/pycord).**
+**If none of these work, [create an issue for help](https://github.com/Nzii3/discord-examples/issues/new/choose) or, try going to the [Pycord Support server](https://discord.gg/pycord).**
